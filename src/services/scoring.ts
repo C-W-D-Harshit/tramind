@@ -49,11 +49,10 @@ export const calculateAwarenessScore = (metrics: AwarenessMetrics): number => {
 // Impulse Control Drill Scoring
 export const calculateImpulseScore = (metrics: ImpulseMetrics): number => {
   const {
-    roundsCompleted,
+    totalRounds,
     roundsResisted,
-    totalResistTime,
-    longestResist,
-    clickedBeforePeak,
+    clickedEarly,
+    perfectResists,
   } = metrics;
 
   let totalScore = 0;
@@ -61,15 +60,14 @@ export const calculateImpulseScore = (metrics: ImpulseMetrics): number => {
   // Points for resisted rounds
   totalScore += roundsResisted * 100;
 
-  // Bonus for perfect resistance (15+ seconds)
-  const perfectResists = metrics.longestResist >= 15 ? roundsResisted : 0;
+  // Bonus for perfect resistance
   totalScore += perfectResists * 50;
 
   // Penalty for early clicks
-  totalScore -= clickedBeforePeak * 50;
+  totalScore -= clickedEarly * 50;
 
   // Perfect session bonus
-  if (roundsResisted === roundsCompleted && roundsCompleted > 0) {
+  if (roundsResisted === totalRounds && totalRounds > 0) {
     totalScore *= 1.5;
   }
 

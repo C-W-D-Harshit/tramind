@@ -42,12 +42,12 @@ export interface AwarenessMetrics {
 }
 
 export interface ImpulseMetrics {
-  roundsCompleted: number;
+  totalRounds: number;
   roundsResisted: number;
-  totalResistTime: number;
-  longestResist: number;
-  averageResist: number;
-  clickedBeforePeak: number;
+  clickedEarly: number;
+  clickedDuringResist: number;
+  perfectResists: number;
+  averageResistTime: number;
 }
 
 export interface FocusMetrics {
