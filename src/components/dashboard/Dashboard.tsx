@@ -37,29 +37,29 @@ export const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-8 space-y-16">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-8 space-y-8 md:space-y-16">
         {/* Header */}
-        <header className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center">
-              <img src="/logo.svg" alt="TRAMIND" className="size-11 object-contain" />
+        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="h-9 w-9 md:h-11 md:w-11 rounded-lg bg-primary/10 flex items-center justify-center">
+              <img src="/logo.svg" alt="TRAMIND" className="size-9 md:size-11 object-contain" />
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
               TRAMIND
             </h1>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-card border">
+          <div className="flex items-center gap-2 md:gap-4 flex-wrap">
+            <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-card border">
               <StreakIcon streak={userStats.currentStreak} />
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">Streak</span>
-                <span className="text-base font-semibold tabular-nums">{userStats.currentStreak} Day{userStats.currentStreak !== 1 ? 's' : ''}</span>
+                <span className="text-sm md:text-base font-semibold tabular-nums">{userStats.currentStreak} Day{userStats.currentStreak !== 1 ? 's' : ''}</span>
               </div>
             </div>
-            <div className="px-4 py-2.5 rounded-lg bg-card border">
+            <div className="px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-card border">
               <div className="flex items-baseline gap-2">
                 <span className="text-xs text-muted-foreground">Level</span>
-                <span className="text-xl font-semibold tabular-nums">{userStats.level}</span>
+                <span className="text-lg md:text-xl font-semibold tabular-nums">{userStats.level}</span>
               </div>
             </div>
             <ModeToggle />
