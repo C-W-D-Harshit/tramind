@@ -30,7 +30,6 @@ export const KeyboardReflexDrill = () => {
   const [targetVisible, setTargetVisible] = useState(false);
   const [roundStartTime, setRoundStartTime] = useState(0);
   const [reactionTime, setReactionTime] = useState<number | null>(null);
-  const [pressedKey, setPressedKey] = useState('');
 
   const sessionStartTime = useRef(new Date());
 
@@ -73,7 +72,6 @@ export const KeyboardReflexDrill = () => {
     setGameState('waiting');
     setTargetVisible(false);
     setReactionTime(null);
-    setPressedKey('');
   };
 
   const showTarget = () => {
@@ -88,7 +86,6 @@ export const KeyboardReflexDrill = () => {
 
     if (gameState === 'waiting') {
       // False start
-      setPressedKey('SPACE');
       setRounds(prev => {
         const updated = [...prev];
         updated[currentRound] = { ...updated[currentRound], falseStart: true, clicked: true };
@@ -107,8 +104,6 @@ export const KeyboardReflexDrill = () => {
       }, 800);
     } else if (gameState === 'active' && targetVisible) {
       const reaction = Date.now() - roundStartTime;
-      setPressedKey('SPACE');
-
       setReactionTime(reaction);
       setTargetVisible(false);
 

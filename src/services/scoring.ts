@@ -8,7 +8,7 @@ import { mean, standardDeviation, calculateStars } from '../utils/calculations';
 
 // Reflex Drill Scoring
 export const calculateReflexScore = (metrics: ReflexMetrics): number => {
-  const { reactionTimes, averageTime, falseStarts } = metrics;
+  const { reactionTimes, falseStarts } = metrics;
 
   if (reactionTimes.length === 0) return 0;
 

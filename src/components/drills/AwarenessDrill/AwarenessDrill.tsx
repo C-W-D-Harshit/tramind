@@ -4,7 +4,6 @@ import { useGame } from '../../../contexts/GameContext';
 import type { AwarenessMetrics } from '../../../types/drill.types';
 import { calculateAwarenessScore, calculateDrillStars } from '../../../services/scoring';
 import { Button } from '../../ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../../ui/card';
 import { Progress } from '../../ui/progress';
 import { Badge } from '../../ui/badge';
 
@@ -63,7 +62,8 @@ export const AwarenessDrill = () => {
 
     // Generate distractors
     for (let i = 0; i < numDistractors; i++) {
-      let x, y;
+      let x: number = 0;
+      let y: number = 0;
       let attempts = 0;
       do {
         const distAngle = Math.random() * 2 * Math.PI;

@@ -47,8 +47,8 @@ export const ImpulseDrill = () => {
   const [resistStartTime, setResistStartTime] = useState(0);
   const [resistTimer, setResistTimer] = useState(0);
 
-  const sessionStartTime = useRef(new Date());
-  const animationFrameRef = useRef<number>();
+  const sessionStartTime = useRef<Date>(new Date());
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   // Instructions countdown
   useEffect(() => {

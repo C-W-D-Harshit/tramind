@@ -1,10 +1,8 @@
 import type { UserStats } from '../types/user.types';
-import type { DrillStats, DrillId } from '../types/drill.types';
+import type { DrillStats } from '../types/drill.types';
 import {
   getLevelFromXP,
   getXPForCurrentLevel,
-  getXPRequiredForNextLevel,
-  calculateXPReward,
   getDaysBetween,
 } from '../utils/calculations';
 
@@ -112,11 +110,19 @@ export const calculateSessionXP = (
   difficulty: number,
   currentStreak: number
 ): number => {
-  let xp = calculateXPReward(baseScore, stars, difficulty);
+  // Base XP from score
+  let xp = baseScore;
+
+  // Star multiplier (5 stars = 1.5x, 4 stars = 1.3x, etc.)
+  const starMultiplier = 1 + (stars * 0.1);
+  xp *= starMultiplier;
+
+  // Difficulty bonus
+  xp += difficulty * 50;
 
   // Streak bonus
   const streakBonus = Math.min(500, currentStreak * 50);
   xp += streakBonus;
 
-  return xp;
+  return Math.floor(xp);
 };

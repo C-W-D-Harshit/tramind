@@ -31,11 +31,11 @@ export const FocusDrill = () => {
   const [longestStreak, setLongestStreak] = useState(0);
   const [distractors, setDistractors] = useState<Array<{ x: number; y: number; speed: number; angle: number }>>([]);
 
-  const sessionStartTime = useRef(new Date());
+  const sessionStartTime = useRef<Date>(new Date());
   const lastInTarget = useRef(false);
   const streakStartTime = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   // Instructions countdown
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { Zap, Keyboard, Eye, Target, Brain, Trophy, Flame, Award, Star } from 'lucide-react';
-import type { ReactElement } from 'react';
 
 // Icon components for drills
 export const DrillIcons = {

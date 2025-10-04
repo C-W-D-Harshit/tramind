@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { UserStats } from '../types/user.types';
-import type { DrillId, Session } from '../types/drill.types';
+import type { Session } from '../types/drill.types';
 import { storage } from '../services/storage';
 import { addXP, updateStreak, levelUpDrill, shouldLevelUpDrill } from '../services/progression';
 
